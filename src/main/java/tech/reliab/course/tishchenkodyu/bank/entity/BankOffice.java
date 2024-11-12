@@ -1,76 +1,57 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
-public class BankOffice {
-    private int id;
+public class BankOffice extends Entity {
     private String name;
     private String address;
-    private boolean isWork;
-    private boolean canPlaceBankAtm;
-    private boolean canGiveCash;
-    private boolean canTakeCash;
-    private int cost;
+    private BankOfficeStatusEnum status;
+    private boolean canPlaceAtm;
+    private int atmCount = 0;
+    private boolean canIssueLoan;
+    private boolean cashWithdrawal;
+    private boolean cashDeposit;
+    private double officeMoney;
+    private double rentCost;
 
-    public int getId() {
-        return id;
+    public BankOffice(String name, String address, boolean canPlaceAtm, boolean canIssueLoan, boolean cashWithdrawal, boolean cashDeposit, double rentCost, Bank bank) {
+        this.name = name;
+        this.address = address;
+        this.canPlaceAtm = canPlaceAtm;
+        this.canIssueLoan = canIssueLoan;
+        this.cashWithdrawal = cashWithdrawal;
+        this.cashDeposit = cashDeposit;
+        this.rentCost = rentCost;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStatus(BankOfficeStatusEnum status) {
+        this.status = status;
     }
 
-    public String getName() {
-        return name;
+    public void setOfficeMoney(double officeMoney) {
+        this.officeMoney = officeMoney;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public boolean isWork() {
-        return isWork;
-    }
-
-    public void setWork(boolean work) {
-        isWork = work;
-    }
-
-    public boolean isCanPlaceBankAtm() {
-        return canPlaceBankAtm;
-    }
-
-    public void setCanPlaceBankAtm(boolean canPlaceBankAtm) {
-        this.canPlaceBankAtm = canPlaceBankAtm;
-    }
-
-    public boolean isCanGiveCash() {
-        return canGiveCash;
-    }
-
-    public void setCanGiveCash(boolean canGiveCash) {
-        this.canGiveCash = canGiveCash;
-    }
-
-    public boolean isCanTakeCash() {
-        return canTakeCash;
-    }
-
-    public void setCanTakeCash(boolean canTakeCash) {
-        this.canTakeCash = canTakeCash;
-    }
-
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
+    @Override
+    public String toString() {
+        return "BankOffice{" +
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", address='" + address + '\'' +
+               ", status=" + status +
+               ", canPlaceAtm=" + canPlaceAtm +
+               ", atmCount=" + atmCount +
+               ", canIssueLoan=" + canIssueLoan +
+               ", cashWithdrawal=" + cashWithdrawal +
+               ", cashDeposit=" + cashDeposit +
+               ", officeMoney=" + officeMoney +
+               ", rentCost=" + rentCost +
+               '}';
     }
 }

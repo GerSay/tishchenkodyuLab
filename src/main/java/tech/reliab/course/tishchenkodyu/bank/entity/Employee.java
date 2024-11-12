@@ -1,87 +1,52 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-public class Employee {
-    private int id;
-    private String fio;
-    private Date dateOfBirth;
-    private String post;
+public class Employee extends Entity {
+    private String fullName;
+    private LocalDate birthDate;
+    private String position;
     private Bank bank;
-    private boolean inOffice;
+    private boolean remoteWork;
     private BankOffice bankOffice;
-    private boolean canGiveCredit;
-    private int salary;
+    private boolean canIssueLoans;
+    private double salary;
 
-    public int getId() {
-        return id;
+    public Employee(String fullName, LocalDate birthDate, String position, Bank bank, boolean remoteWork, BankOffice bankOffice, boolean canIssueLoans, double salary) {
+        this.fullName = fullName;
+        this.birthDate = birthDate;
+        this.position = position;
+        this.bank = bank;
+        this.remoteWork = remoteWork;
+        this.bankOffice = bankOffice;
+        this.canIssueLoans = canIssueLoans;
+        this.salary = salary;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFio() {
-        return fio;
-    }
-
-    public void setFio(String fio) {
-        this.fio = fio;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getPost() {
-        return post;
-    }
-
-    public void setPost(String post) {
-        this.post = post;
+    public String getFullName() {
+        return fullName;
     }
 
     public Bank getBank() {
         return bank;
     }
 
-    public void setBank(Bank bank) {
-        this.bank = bank;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public boolean isInOffice() {
-        return inOffice;
-    }
-
-    public void setInOffice(boolean inOffice) {
-        this.inOffice = inOffice;
-    }
-
-    public BankOffice getBankOffice() {
-        return bankOffice;
-    }
-
-    public void setBankOffice(BankOffice bankOffice) {
-        this.bankOffice = bankOffice;
-    }
-
-    public boolean isCanGiveCredit() {
-        return canGiveCredit;
-    }
-
-    public void setCanGiveCredit(boolean canGiveCredit) {
-        this.canGiveCredit = canGiveCredit;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
+    @Override
+    public String toString() {
+        return "Employee{" +
+               "id=" + id +
+               ", fullName='" + fullName + '\'' +
+               ", birthDate=" + birthDate +
+               ", position='" + position + '\'' +
+               ", bank=" + bank.getName() +
+               ", remoteWork=" + remoteWork +
+               ", bankOffice=" + (bankOffice != null ? bankOffice.getName() : "None") +
+               ", canIssueLoans=" + canIssueLoans +
+               ", salary=" + salary +
+               '}';
     }
 }

@@ -1,105 +1,67 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
-public class CreditAccount {
-    private int id;
+public class CreditAccount extends Entity {
     private User user;
-    private String bankName;
-    private Instant openCredit;
-    private Instant closeCredit;
-    private int countMonthForCredit;
-    private int sumCredit;
-    private int monthlyPayment;
-    private int interestRate;
+    private Bank bank;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private int loanTermMonths;
+    private double loanAmount;
+    private double monthlyPayment;
+    private double interestRate;
     private Employee employee;
     private PaymentAccount paymentAccount;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
+    public CreditAccount(User user, Bank bank, LocalDate startDate, int loanTermMonths, double interestRate, Employee employee, PaymentAccount paymentAccount) {
         this.user = user;
+        this.bank = bank;
+        this.startDate = startDate;
+        this.loanTermMonths = loanTermMonths;
+        this.interestRate = interestRate;
+        this.employee = employee;
+        this.paymentAccount = paymentAccount;
     }
 
-    public String getBankName() {
-        return bankName;
+    public Bank getBank() {
+        return bank;
     }
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
-    public Instant getOpenCredit() {
-        return openCredit;
-    }
-
-    public void setOpenCredit(Instant openCredit) {
-        this.openCredit = openCredit;
-    }
-
-    public Instant getCloseCredit() {
-        return closeCredit;
-    }
-
-    public void setCloseCredit(Instant closeCredit) {
-        this.closeCredit = closeCredit;
-    }
-
-    public int getCountMonthForCredit() {
-        return countMonthForCredit;
-    }
-
-    public void setCountMonthForCredit(int countMonthForCredit) {
-        this.countMonthForCredit = countMonthForCredit;
-    }
-
-    public int getSumCredit() {
-        return sumCredit;
-    }
-
-    public void setSumCredit(int sumCredit) {
-        this.sumCredit = sumCredit;
-    }
-
-    public int getMonthlyPayment() {
-        return monthlyPayment;
-    }
-
-    public void setMonthlyPayment(int monthlyPayment) {
+    public void setMonthlyPayment(double monthlyPayment) {
         this.monthlyPayment = monthlyPayment;
     }
 
-    public int getInterestRate() {
-        return interestRate;
-    }
-
-    public void setInterestRate(int interestRate) {
+    public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setLoanAmount(double loanAmount) {
+        this.loanAmount = loanAmount;
     }
 
-    public PaymentAccount getPaymentAccount() {
-        return paymentAccount;
-    }
-
-    public void setPaymentAccount(PaymentAccount paymentAccount) {
-        this.paymentAccount = paymentAccount;
+    @Override
+    public String toString() {
+        return "CreditAccount{" +
+               "id=" + id +
+               ", user=" + user.getFullName() +
+               ", bank=" + bank.getName() +
+               ", startDate=" + startDate +
+               ", endDate=" + endDate +
+               ", loanTermMonths=" + loanTermMonths +
+               ", loanAmount=" + loanAmount +
+               ", monthlyPayment=" + monthlyPayment +
+               ", interestRate=" + interestRate +
+               ", employee=" + (employee != null ? employee.getFullName() : "None") +
+               ", paymentAccountId=" + (paymentAccount != null ? paymentAccount.getId() : "None") +
+               '}';
     }
 }
