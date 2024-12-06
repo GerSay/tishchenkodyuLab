@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Random;
+import lombok.RequiredArgsConstructor;
 import tech.reliab.course.tishchenkodyu.bank.entity.Bank;
 import tech.reliab.course.tishchenkodyu.bank.entity.BankOffice;
 import tech.reliab.course.tishchenkodyu.bank.entity.BankOfficeStatusEnum;
@@ -12,23 +13,17 @@ import tech.reliab.course.tishchenkodyu.bank.service.BankOfficeService;
 import java.util.List;
 import tech.reliab.course.tishchenkodyu.bank.service.BankService;
 
+@RequiredArgsConstructor
 public class BankOfficeServiceImpl implements BankOfficeService {
-
     private int bankOfficesCount = 0;
-
     private List<BankOffice> bankOffices = new ArrayList<>();
-
     private final BankService bankService;
-
-    public BankOfficeServiceImpl(BankService bankService) {
-        this.bankService = bankService;
-    }
 
     public BankOffice createBankOffice(String name, String address, boolean canPlaceAtm,
                                        boolean canIssueLoan, boolean cashWithdrawal, boolean cashDeposit,
                                        double rentCost, Bank bank) {
         BankOffice bankOffice = new BankOffice(name, address, canPlaceAtm, canIssueLoan,
-                cashWithdrawal, cashDeposit, rentCost, bank);
+                cashWithdrawal, cashDeposit, rentCost);
         bankOffice.setId(bankOfficesCount++);
         bankOffice.setStatus(generateStatus());
         bankOffice.setOfficeMoney(generateOfficeMoney(bank));

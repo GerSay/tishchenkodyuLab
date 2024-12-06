@@ -4,27 +4,22 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Random;
+import lombok.RequiredArgsConstructor;
 import tech.reliab.course.tishchenkodyu.bank.entity.Bank;
 import tech.reliab.course.tishchenkodyu.bank.service.BankService;
 
 import java.util.List;
 import tech.reliab.course.tishchenkodyu.bank.service.UserService;
 
+@RequiredArgsConstructor
 public class BankServiceImpl implements BankService {
-
     private static final int RATING_BOUND = 101;
     private static final int TOTAL_MONEY_BOUND = 1000001;
     private static final int MAX_RATE = 20;
     private static final double DIVIDER = 10.0;
     private int banksCount = 0;
-
     private final UserService userService;
-
     private List<Bank> banks = new ArrayList<>();
-
-    public BankServiceImpl(UserService userService) {
-        this.userService = userService;
-    }
 
     public Bank createBank(String bankName) {
         Bank bank = new Bank(bankName);

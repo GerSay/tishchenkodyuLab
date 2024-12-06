@@ -1,13 +1,10 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Entity {
     protected int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

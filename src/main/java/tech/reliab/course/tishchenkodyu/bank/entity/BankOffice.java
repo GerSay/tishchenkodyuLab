@@ -1,5 +1,12 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString(callSuper = true, includeFieldNames = false)
 public class BankOffice extends Entity {
     private String name;
     private String address;
@@ -12,7 +19,7 @@ public class BankOffice extends Entity {
     private double officeMoney;
     private double rentCost;
 
-    public BankOffice(String name, String address, boolean canPlaceAtm, boolean canIssueLoan, boolean cashWithdrawal, boolean cashDeposit, double rentCost, Bank bank) {
+    public BankOffice(String name, String address, boolean canPlaceAtm, boolean canIssueLoan, boolean cashWithdrawal, boolean cashDeposit, double rentCost) {
         this.name = name;
         this.address = address;
         this.canPlaceAtm = canPlaceAtm;
@@ -20,38 +27,5 @@ public class BankOffice extends Entity {
         this.cashWithdrawal = cashWithdrawal;
         this.cashDeposit = cashDeposit;
         this.rentCost = rentCost;
-    }
-
-    public void setStatus(BankOfficeStatusEnum status) {
-        this.status = status;
-    }
-
-    public void setOfficeMoney(double officeMoney) {
-        this.officeMoney = officeMoney;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return "BankOffice{" +
-               "id=" + id +
-               ", name='" + name + '\'' +
-               ", address='" + address + '\'' +
-               ", status=" + status +
-               ", canPlaceAtm=" + canPlaceAtm +
-               ", atmCount=" + atmCount +
-               ", canIssueLoan=" + canIssueLoan +
-               ", cashWithdrawal=" + cashWithdrawal +
-               ", cashDeposit=" + cashDeposit +
-               ", officeMoney=" + officeMoney +
-               ", rentCost=" + rentCost +
-               '}';
     }
 }

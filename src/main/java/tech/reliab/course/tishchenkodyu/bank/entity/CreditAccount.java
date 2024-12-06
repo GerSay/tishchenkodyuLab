@@ -1,7 +1,13 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
 import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString(callSuper = true, includeFieldNames = false)
 public class CreditAccount extends Entity {
     private User user;
     private Bank bank;
@@ -22,46 +28,5 @@ public class CreditAccount extends Entity {
         this.interestRate = interestRate;
         this.employee = employee;
         this.paymentAccount = paymentAccount;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setMonthlyPayment(double monthlyPayment) {
-        this.monthlyPayment = monthlyPayment;
-    }
-
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
-    }
-
-    public void setBank(Bank bank) {
-        this.bank = bank;
-    }
-
-    public void setLoanAmount(double loanAmount) {
-        this.loanAmount = loanAmount;
-    }
-
-    @Override
-    public String toString() {
-        return "CreditAccount{" +
-               "id=" + id +
-               ", user=" + user.getFullName() +
-               ", bank=" + bank.getName() +
-               ", startDate=" + startDate +
-               ", endDate=" + endDate +
-               ", loanTermMonths=" + loanTermMonths +
-               ", loanAmount=" + loanAmount +
-               ", monthlyPayment=" + monthlyPayment +
-               ", interestRate=" + interestRate +
-               ", employee=" + (employee != null ? employee.getFullName() : "None") +
-               ", paymentAccountId=" + (paymentAccount != null ? paymentAccount.getId() : "None") +
-               '}';
     }
 }

@@ -1,5 +1,12 @@
 package tech.reliab.course.tishchenkodyu.bank.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString(callSuper = true, includeFieldNames = false)
 public class BankAtm extends Entity {
     private String name;
     private String address;
@@ -21,38 +28,5 @@ public class BankAtm extends Entity {
         this.cashWithdrawal = cashWithdrawal;
         this.cashDeposit = cashDeposit;
         this.maintenanceCost = maintenanceCost;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setStatus(BankAtmStatusEnum status) {
-        this.status = status;
-    }
-
-    public void setAtmMoney(double atmMoney) {
-        this.atmMoney = atmMoney;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "BankAtm{" +
-               "id=" + id +
-               ", name='" + name + '\'' +
-               ", address='" + address + '\'' +
-               ", status=" + status +
-               ", bank=" + bank.getName() +
-               ", location=" + location.getName() +
-               ", employee=" + (employee != null ? employee.getFullName() : "None") +
-               ", cashWithdrawal=" + cashWithdrawal +
-               ", cashDeposit=" + cashDeposit +
-               ", atmMoney=" + atmMoney +
-               ", maintenanceCost=" + maintenanceCost +
-               '}';
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import tech.reliab.course.tishchenkodyu.bank.entity.Bank;
 import tech.reliab.course.tishchenkodyu.bank.entity.PaymentAccount;
 import tech.reliab.course.tishchenkodyu.bank.entity.User;
@@ -11,6 +12,7 @@ import tech.reliab.course.tishchenkodyu.bank.service.BankService;
 import tech.reliab.course.tishchenkodyu.bank.service.PaymentAccountService;
 import tech.reliab.course.tishchenkodyu.bank.service.UserService;
 
+@RequiredArgsConstructor
 public class PaymentAccountServiceImpl implements PaymentAccountService {
 
     private static int paymentAccountCount = 0;
@@ -19,11 +21,6 @@ public class PaymentAccountServiceImpl implements PaymentAccountService {
     private final BankService bankService;
 
     private List<PaymentAccount> paymentAccounts = new ArrayList<>();
-
-    public PaymentAccountServiceImpl (UserService userService, BankService bankService) {
-        this.userService = userService;
-        this.bankService = bankService;
-    }
 
     public PaymentAccount createPaymentAccount(User user, Bank bank) {
         PaymentAccount paymentAccount = new PaymentAccount(user, bank);
